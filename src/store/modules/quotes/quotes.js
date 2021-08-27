@@ -9,7 +9,7 @@ export default {
     set_loading(state, isLoading) {
       state.loading = isLoading;
     },
-    set_User_data(state, data) {
+    set_quote_data(state, data) {
       state.data = data;
     },
   },
@@ -17,10 +17,11 @@ export default {
     get_one_quote({ commit }) {
       return new Promise((resolve, reject) => {
         commit("set_loading", true);
-        QuotesService.getOneRandomQuote
+        QuotesService.getOneRandomQuote()
           .then((res) => {
             commit("set_loading", false);
             resolve(res.data);
+            console.log("foi");
           })
           .catch((err) => {
             commit("set_loading", false);
@@ -31,7 +32,7 @@ export default {
     get_ten_quotes({ commit }) {
       return new Promise((resolve, reject) => {
         commit("set_loading", true);
-        QuotesService.getTenRandomQuotes
+        QuotesService.getTenRandomQuotes()
           .then((res) => {
             commit("set_loading", false);
             resolve(res.data);

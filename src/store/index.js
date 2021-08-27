@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
 import quotes from "./modules/quotes/quotes";
 
 Vue.use(Vuex);
