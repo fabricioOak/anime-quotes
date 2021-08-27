@@ -21,7 +21,6 @@ export default {
           .then((res) => {
             commit("set_loading", false);
             resolve(res.data);
-            console.log("foi");
           })
           .catch((err) => {
             commit("set_loading", false);
