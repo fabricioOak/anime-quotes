@@ -1,13 +1,16 @@
 <template>
   <div class="about">
-    <v-row justify="center">
+    <v-row class="pt-4" justify="center">
       <v-col cols="4">
-        <h1>Showing one quote</h1>
-        <v-card>
+        <v-card height="250" width="500">
           <v-card-title>{{ this.quotes.anime }}</v-card-title>
-          <v-card-subtitle>{{ this.quotes.quote }}</v-card-subtitle>
           <v-card-subtitle>
-            <p>{{ this.quotes.character }}</p>
+            <p class="pr-2 scroll text-justify">
+              {{ this.quotes.quote }}
+            </p>
+          </v-card-subtitle>
+          <v-card-subtitle class="pt-0">
+            {{ this.quotes.character }}
           </v-card-subtitle>
         </v-card>
       </v-col>
@@ -43,3 +46,13 @@ export default {
   },
 };
 </script>
+
+<style>
+.scroll {
+  height: 120px;
+  overflow-y: auto;
+}
+.about {
+  height: 100vh;
+}
+</style>
