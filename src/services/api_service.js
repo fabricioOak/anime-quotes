@@ -12,14 +12,6 @@ const ApiService = {
     Vue.prototype.$http.defaults.headers = header;
   },
 
-  setAuthorization(tokenType, access) {
-    const auth = {
-      Authorization: tokenType + " " + access,
-    };
-
-    Vue.prototype.$http.defaults.headers = auth;
-  },
-
   get(api) {
     return Vue.prototype.$http.get(api);
   },
