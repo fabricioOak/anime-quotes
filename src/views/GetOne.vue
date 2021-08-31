@@ -1,18 +1,23 @@
 <template>
-  <div class="about">
-    <v-row class="pt-4" justify="center">
+  <div class="division">
+    <div>
+      <SideMenu />
+    </div>
+    <v-row justify="center" align="center">
       <v-col cols="4">
-        <v-card height="250" width="500">
-          <v-card-title>{{ this.quotes.anime }}</v-card-title>
-          <v-card-subtitle>
-            <p class="pr-2 scroll text-justify">
-              {{ this.quotes.quote }}
-            </p>
-          </v-card-subtitle>
-          <v-card-subtitle class="pt-0">
-            {{ this.quotes.character }}
-          </v-card-subtitle>
-        </v-card>
+        <div class="pt-12">
+          <v-card height="250" width="500">
+            <v-card-title>{{ this.quotes.anime }}</v-card-title>
+            <v-card-subtitle>
+              <p class="pr-2 scroll text-justify">
+                {{ this.quotes.quote }}
+              </p>
+            </v-card-subtitle>
+            <v-card-subtitle class="pt-0">
+              {{ this.quotes.character }}
+            </v-card-subtitle>
+          </v-card>
+        </div>
       </v-col>
     </v-row>
   </div>
@@ -20,8 +25,10 @@
 
 
 <script>
+import SideMenu from "../components/SideMenu.vue";
 export default {
   name: "About",
+  components: { SideMenu },
   data() {
     return {
       quotes: "",
@@ -52,7 +59,10 @@ export default {
   height: 120px;
   overflow-y: auto;
 }
-.about {
-  height: 100vh;
+
+.division {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
 }
 </style>
