@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import GetOne from "../views/GetOne.vue";
 import GetTen from "../views/GetTen.vue";
+import SearchAnime from "../views/SearchByAnime.vue";
 
 Vue.use(VueRouter);
 
@@ -11,16 +12,23 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-  },
-  {
-    path: "/random_quote",
-    name: "GetOne",
-    component: GetOne,
-  },
-  {
-    path: "/more_quotes",
-    name: "GetTen",
-    component: GetTen,
+    children: [
+      {
+        path: "random_quote",
+        name: "GetOne",
+        component: GetOne,
+      },
+      {
+        path: "more_quotes",
+        name: "GetTen",
+        component: GetTen,
+      },
+      {
+        path: "search_anime",
+        name: "SearchAnime",
+        component: SearchAnime,
+      }
+    ]
   },
 ];
 
