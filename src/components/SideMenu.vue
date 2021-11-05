@@ -1,6 +1,12 @@
 <template>
   <div>
-    <v-navigation-drawer height="100vh" expand-on-hover permanent>
+    <v-navigation-drawer
+      app
+      v-model="drawer"
+      :mini-variant.sync="mini"
+      expand-on-hover
+      permanent-drawer
+    >
       <v-list-item class="px-2">
         <v-list-item-avatar>
           <v-img
@@ -23,29 +29,16 @@
           </v-list-item-icon>
           <v-list-item-title>Toggle Theme</v-list-item-title>
         </v-list-item>
-        <v-list-item link :to="{ name: 'GetOne' }">
+        <v-list-item
+          v-for="item in this.items"
+          :key="item.text"
+          :to="item.link"
+          link
+        >
           <v-list-item-icon>
-            <v-icon>mdi-image</v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
-          <v-list-item-title>Show me one</v-list-item-title>
-        </v-list-item>
-        <v-list-item link :to="{ name: 'GetTen' }">
-          <v-list-item-icon>
-            <v-icon>mdi-image-multiple</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Show me more!!!</v-list-item-title>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-star</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Anime</v-list-item-title>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-icon>
-            <v-icon>mdi-account</v-icon>
-          </v-list-item-icon>
-          <v-list-item-title>Character</v-list-item-title>
+          <v-list-item-title>{{ item.text }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -55,6 +48,34 @@
 <script>
 export default {
   name: "SideMenu",
+  data() {
+    return {
+      drawer: true,
+      mini: true,
+      items: [
+        {
+          icon: "mdi-image",
+          text: "Show me one",
+          link: { name: "GetOne" },
+        },
+        {
+          icon: "mdi-image-multiple",
+          text: "Show me multiples",
+          link: { name: "GetTen" },
+        },
+        {
+          icon: "mdi-star",
+          text: "Anime",
+          link: { name: "SearchAnime" },
+        },
+        {
+          icon: "mdi-account",
+          text: "Character",
+          link: "",
+        },
+      ],
+    };
+  },
   methods: {
     toggleTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;

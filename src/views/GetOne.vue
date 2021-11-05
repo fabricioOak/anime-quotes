@@ -1,9 +1,6 @@
 <template>
-  <div v-if="!this.$store.state.quotes.loading">
+  <v-container v-if="!this.$store.state.quotes.loading">
     <div class="division">
-      <div>
-        <SideMenu />
-      </div>
       <v-row justify="center" align="center">
         <v-col cols="4">
           <div class="pt-12">
@@ -22,7 +19,7 @@
         </v-col>
       </v-row>
     </div>
-  </div>
+  </v-container>
   <div v-else>
     <Loading />
   </div>

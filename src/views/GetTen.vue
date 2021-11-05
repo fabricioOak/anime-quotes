@@ -1,9 +1,5 @@
 <template>
-  <div class="division">
-    <div style="width: 30%">
-      <SideMenu />
-    </div>
-
+  <v-container class="division">
     <div v-if="!this.$store.state.quotes.loading">
       <div class="page-scroll">
         <v-row class="pt-8" justify="center">
@@ -31,7 +27,7 @@
     <div v-else>
       <Loading />
     </div>
-  </div>
+  </v-container>
 </template>
 
 
@@ -71,9 +67,5 @@ export default {
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
-}
-.division {
-  display: flex;
-  justify-content: flex-start;
 }
 </style>
